@@ -1,0 +1,11 @@
+version: '3.1'
+
+services:
+
+  word-count:
+    image: python
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: "python words_count.py"
+
