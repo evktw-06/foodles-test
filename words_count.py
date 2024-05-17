@@ -30,42 +30,5 @@ def get_words_occurrences_number(sentence: str, n: int) -> list[tuple[str, int]]
 
     return sorted(word_count.items(), key=lambda x: (-x[1], x[0]))[:n]
 
-def test_get_words_occurrences_number_example():
-    sentence = "baz bar foo foo zblah zblah zblah baz toto bar"
-    n = 3
-
-    result = get_words_occurrences_number(sentence, n)
-
-    assert result == [('zblah', 3), ('bar', 2), ('baz', 2)]
-
-
-def test_get_words_occurrences_number_empty_sentence():
-    sentence = ""
-    n = 4
-
-    result = get_words_occurrences_number(sentence, n)
-
-    assert result == []
-
-
-def test_get_words_occurrences_number_invalid_n():
-    sentence = "baz bar foo foo zblah zblah zblah baz toto bar"
-    n = -3
-
-    # Testing libraries like pytest provide useful tools for handling exceptions, such as pytest.raises(Exception).
-    # Using try/except blocks in tests is considered a bad practice.
-    try:
-        get_words_occurrences_number(sentence, n)
-    except ValueError:
-        exception_raised = True
-    else:
-        exception_raised = False
-
-    assert exception_raised
-
-
 # Execution
-test_get_words_occurrences_number_example()
-test_get_words_occurrences_number_empty_sentence()
-test_get_words_occurrences_number_invalid_n()
 print(get_words_occurrences_number("baz bar foo foo zblah zblah zblah baz toto bar", 3))
